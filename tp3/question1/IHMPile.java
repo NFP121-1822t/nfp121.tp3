@@ -4,7 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class IHMPile extends JFrame implements ActionListener{
+public class IHMPile  extends JFrame implements ActionListener {
     private JTextField donnee = new JTextField(6);
     private JTextField sommet = new JTextField(6);
     private JLabel     contenu = new JLabel("[]");
@@ -34,19 +34,27 @@ public class IHMPile extends JFrame implements ActionListener{
 
     }
 
-    public void actionPerformed(ActionEvent ae){
+    public void actionPerformed(ActionEvent ae) {
         if(ae.getActionCommand().equals("empiler")){
-
-            // à compléter
-
+            try{
+            Object s = donnee.getText();
+            p.empiler(s);
+           contenu.setText( p.toString());
             // en cas d'exception
-            //contenu.setText( /* à compléter */"" + " estPleine !");
+            }catch (PilePleineException ep){contenu.setText( p.toString() + " estPleine !");}
+            
 
         }else{
-
-            // à compléter
+            try{
+                Object o =p.depiler();
+                sommet.setText(o.toString());
+                contenu.setText( p.toString());
             // en cas d'exception
-            //contenu.setText( /* à compléter */"" + " estVide !");
+        } catch(PileVideException ev){contenu.setText(  p.toString() + " estVide !");
+           
+
+        }
+            
         }
     }
 
