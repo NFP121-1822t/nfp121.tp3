@@ -172,5 +172,44 @@ public class PilesAuMemeComportement extends junit.framework.TestCase {
         assertEquals(" différence  sur la taille() ?? ",p3.taille(), p4.taille());
 
     }
+
+    
+
+    public void testMy_test() throws Exception
+    {
+        PileI pi1=new Pile();
+        PileI pi2=new Pile2();
+        PileI pi3=new Pile3();
+        PileI pi4=new Pile4();
+
+        pi1.empiler(1);
+        pi1.empiler(2);
+        pi1.empiler(3);
+
+        pi2.empiler(1);
+        pi2.empiler(2);
+        pi2.empiler(3);
+
+        assertEquals(pi1.capacite(), pi2.capacite());
+        assertEquals(pi2.capacite(), pi3.capacite());
+        assertEquals(pi3.capacite(), pi4.capacite());
+
+        assertEquals("pi1.sommet() != pi2.sommet() ??? ", pi1.sommet(), pi2.sommet());
+        assertEquals(" différence sur la taille() ?? ",pi1.taille(), pi2.taille());
+        assertEquals("pi1.estPleine() != pi2.estPleine() ??? ",pi1.estPleine(), pi2.estPleine());
+        assertEquals("pi3.estVide() != pi4.estVide() ??? ",pi3.estVide(), pi4.estVide());
+        assertEquals("pi1.toString() != pi2.toString() ?? ", pi1.toString(), pi2.toString());
+        assertEquals("pi3.toString() != pi4.toString() ?? ", pi3.toString(), pi4.toString());
+        
+        pi1.depiler();
+        pi2.depiler();
+        
+        assertEquals(" différence sur la taille() ?? ",pi1.taille(), pi2.taille());
+        assertEquals("pi1.toString() != pi2.toString() ?? ", pi1.toString(), pi2.toString());
+        assertEquals("pi1.sommet() != pi2.sommet() ??? ", pi1.sommet(), pi2.sommet());
+        
+        
+    }
 }
+
 
